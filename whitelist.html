@@ -1,49 +1,62 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Whitelist / Candidature RP - Normandie RP</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <nav class="navbar">
-      <div class="nav-left">
-        <img src="logo.png" alt="Logo Normandie RP" class="nav-logo">
-        <span class="logo-text">Normandie RP</span>
-      </div>
-      <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="whitelist.html" class="active">Candidature RP</a></li>
-        <li><a href="reglement.html">Règlement</a></li>
-        <li><a href="jobs.html">Métiers</a></li>
-        <li><a href="boutique.html">Boutique</a></li>
-      </ul>
-    </nav>
-  </header>
+<?php
 
-  <main class="rules">
-    <h1>📝 Whitelist / Candidature RP</h1>
-    <p>Pour rejoindre le serveur <strong>Normandie RP</strong>, merci de remplir le formulaire ci-dessous. Assurez-vous d’avoir lu le règlement avant de postuler.</p>
+$webhook_url = "https://discord.com/api/webhooks/1463651535115391220/FWeJRwU_rJQCXbpVixEL6gWp6CHpLE93jxdu9YEgJlGHUM9Cg5DTxgBJyUhupfnGw_Ij";
 
-    <section>
-      <!-- GOOGLE FORM IFRAME -->
-      <iframe 
-        src="https://forms.gle/9joYgT5byKBwuB5z9" 
-        width="100%" height="1500" frameborder="0" marginheight="0" marginwidth="0">
-        Chargement…
-      </iframe>
-    </section>
+function field($name) {
+    return isset($_POST[$name]) && $_POST[$name] !== "" ? htmlspecialchars($_POST[$name]) : "Non renseigné";
+}
 
-    <div class="discord-link">
-      💬 Besoin d’aide ? Rejoignez notre Discord :  
-      <a href="https://discord.gg/HNP5TUXyZm" target="_blank" class="btn-discord">👉 Discord Normandie RP</a>
-    </div>
-  </main>
+$origine = isset($_POST['origine']) ? implode(", ", $_POST['origine']) : "Non renseigné";
 
-  <footer>
-    <p>© 2025 Normandie RP — Tous droits réservés</p>
-  </footer>
-</body>
-</html>
+$message = "**📝 Nouvelle candidature – LS Midnight RP**\n\n"
+. "**📌 Informations générales**\n"
+. "📧 Email : " . field("email") . "\n"
+. "🎮 Discord : " . field("discord") . "\n"
+. "🎂 Âge IRL : " . field("age_irl") . "\n"
+. "⏰ Disponibilités : " . field("disponibilites") . "\n\n"
+
+. "**👤 Identité RP**\n"
+. "🪪 Nom RP : " . field("nom_rp") . "\n"
+. "👤 Prénom RP : " . field("prenom_rp") . "\n"
+. "🎭 Âge RP : " . field("age_rp") . "\n\n"
+
+. "**📖 Présentation & Background**\n"
+. "🧠 Présentation RP :\n" . field("presentation_rp") . "\n\n"
+. "📚 Background RP :\n" . field("background_rp") . "\n\n"
+. "🎯 Objectifs RP :\n" . field("objectifs_rp") . "\n\n"
+
+. "**🎭 Expérience RP**\n"
+. "RP déjà pratiqué : " . field("experience_rp") . "\n"
+. "Serveurs RP : " . field("serveurs_rp") . "\n"
+. "Ancienneté RP : " . field("anciennete_rp") . "\n\n"
+
+. "**📜 Règlement**\n"
+. "Règlement compris : " . field("reglement") . "\n"
+. "Définition du RP sérieux :\n" . field("rp_serieux") . "\n\n"
+
+. "**🧠 Mises en situation**\n"
+. "Insultes RP :\n" . field("situation_insulte") . "\n\n"
+. "Fail RP :\n" . field("situation_failrp") . "\n\n"
+
+. "**🌐 Divers**\n"
+. "Origine : " . $origine . "\n"
+. "Pourquoi l’accepter :\n" . field("pourquoi");
+
+$data = [
+    "content" => $message
+];
+
+$options = [
+    "http" => [
+        "header"  => "Content-Type: application/json",
+        "method"  => "POST",
+        "content" => json_encode($data)
+    ]
+];
+
+$context = stream_context_create($options);
+file_get_contents($webhook_url, false, $context);
+
+// Redirection après envoi
+header("Location: merci.html");
+exit;
