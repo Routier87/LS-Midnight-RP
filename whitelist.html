@@ -23,9 +23,7 @@ body {
   color: white;
 }
 
-h1, h2 {
-  color: #c77dff;
-}
+h1, h2 { color: #c77dff; }
 
 label {
   display: block;
@@ -43,10 +41,7 @@ input, textarea {
   color: white;
 }
 
-textarea {
-  min-height: 120px;
-  resize: vertical;
-}
+textarea { min-height: 120px; }
 
 button {
   margin-top: 30px;
@@ -65,7 +60,7 @@ button {
 <body>
 
 <div class="container">
-<h1>📝 Whitelist / Candidature RP – LS Midnight RP</h1>
+<h1>📝 Candidature RP – LS Midnight RP</h1>
 
 <form id="whitelistForm">
 
@@ -76,6 +71,9 @@ button {
 
 <label>Pseudo Discord *</label>
 <input type="text" id="discord" required>
+
+<label>ID Discord *</label>
+<input type="text" id="discordId" required>
 
 <label>Âge IRL *</label>
 <input type="number" id="ageIrl" required>
@@ -110,61 +108,65 @@ button {
 <label>Expérience RP</label>
 <textarea id="experience"></textarea>
 
-<h2>📜 Règlement & sérieux</h2>
+<h2>📜 Sérieux RP</h2>
 
 <label>Que signifie pour vous le RP sérieux ?</label>
 <textarea id="serieux"></textarea>
 
-<h2>🧠 Mises en situation RP</h2>
+<h2>🧠 Mises en situation</h2>
 
-<label>Un joueur vous insulte sans raison, que faites-vous ?</label>
+<label>Un joueur vous insulte sans raison</label>
 <textarea id="insulte"></textarea>
 
-<label>Vous êtes témoin d’un fail RP, comment réagissez-vous ?</label>
+<label>Vous voyez un fail RP</label>
 <textarea id="failrp"></textarea>
 
-<button type="submit">📨 Envoyer ma candidature</button>
+<button type="submit">📨 Envoyer la candidature</button>
 
 </form>
 </div>
 
 <script>
 const webhookURL = "https://discord.com/api/webhooks/1463651535115391220/FWeJRwU_rJQCXbpVixEL6gWp6CHpLE93jxdu9YEgJlGHUM9Cg5DTxgBJyUhupfnGw_Ij";
+const staffRoleId = "1459918620988801177";
 
 document.getElementById("whitelistForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
   const message = {
     content:
-`📝 **Nouvelle candidature – LS Midnight RP**
+`🚨 <@&${staffRoleId}> **NOUVELLE CANDIDATURE RP – LS MIDNIGHT RP**
 
-📧 Email : ${email.value}
-🎮 Discord : ${discord.value}
-🎂 Âge IRL : ${ageIrl.value}
-⏰ Disponibilités : ${dispo.value}
+👤 **Candidat**
+• Discord : ${discord.value}
+• ID Discord : <@${discordId.value}>
+• Email : ${email.value}
+• Âge IRL : ${ageIrl.value}
+• Disponibilités : ${dispo.value}
 
-👤 Identité RP :
-${prenomRp.value} ${nomRp.value} (${ageRp.value})
+🎭 **Identité RP**
+• Nom : ${prenomRp.value} ${nomRp.value}
+• Âge RP : ${ageRp.value}
 
-📖 Présentation RP :
+📖 **Présentation RP**
 ${presentation.value}
 
-📚 Background RP :
+📚 **Background RP**
 ${background.value}
 
-🎯 Objectifs RP :
+🎯 **Objectifs RP**
 ${objectifs.value}
 
-🎭 Expérience RP :
+🎮 **Expérience RP**
 ${experience.value}
 
-📜 RP sérieux :
+📜 **RP sérieux**
 ${serieux.value}
 
-🧠 Insultes RP :
+🧠 **Situation – Insulte**
 ${insulte.value}
 
-❌ Fail RP :
+❌ **Situation – Fail RP**
 ${failrp.value}`
   };
 
@@ -174,11 +176,11 @@ ${failrp.value}`
     body: JSON.stringify(message)
   })
   .then(() => {
-    alert("✅ Candidature envoyée avec succès !");
+    alert("✅ Candidature envoyée !");
     document.getElementById("whitelistForm").reset();
   })
   .catch(() => {
-    alert("❌ Erreur lors de l’envoi de la candidature");
+    alert("❌ Erreur lors de l’envoi");
   });
 });
 </script>
