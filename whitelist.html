@@ -7,17 +7,32 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
+body {
+  background: url('banniere.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+}
+
 .container {
   max-width: 900px;
-  margin: 40px auto;
-  background: #13182b;
+  margin: 60px auto;
+  background: rgba(19, 24, 43, 0.95);
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 0 30px rgba(0,0,0,0.6);
   color: white;
 }
-h1, h2 { color: #c77dff; }
-label { margin-top: 20px; display: block; font-weight: bold; }
+
+h1, h2 {
+  color: #c77dff;
+}
+
+label {
+  display: block;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
 input, textarea {
   width: 100%;
   margin-top: 8px;
@@ -27,7 +42,12 @@ input, textarea {
   background: #1e2440;
   color: white;
 }
-textarea { min-height: 120px; }
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
 button {
   margin-top: 30px;
   width: 100%;
@@ -50,6 +70,7 @@ button {
 <form id="whitelistForm">
 
 <h2>📌 Informations générales</h2>
+
 <label>Email *</label>
 <input type="email" id="email" required>
 
@@ -63,6 +84,7 @@ button {
 <textarea id="dispo"></textarea>
 
 <h2>👤 Identité RP</h2>
+
 <label>Nom RP *</label>
 <input type="text" id="nomRp" required>
 
@@ -72,29 +94,33 @@ button {
 <label>Âge RP</label>
 <input type="number" id="ageRp">
 
-<h2>📖 Background RP</h2>
+<h2>📖 Présentation & Background RP</h2>
+
 <label>Présentation RP *</label>
 <textarea id="presentation" required></textarea>
 
-<label>Histoire RP *</label>
+<label>Background RP *</label>
 <textarea id="background" required></textarea>
 
 <label>Objectifs RP</label>
 <textarea id="objectifs"></textarea>
 
 <h2>🎭 Expérience RP</h2>
-<label>Déjà fait du RP ?</label>
-<input type="text" id="experience">
 
-<h2>📜 Règlement</h2>
-<label>RP sérieux pour vous ?</label>
+<label>Expérience RP</label>
+<textarea id="experience"></textarea>
+
+<h2>📜 Règlement & sérieux</h2>
+
+<label>Que signifie pour vous le RP sérieux ?</label>
 <textarea id="serieux"></textarea>
 
-<h2>🧠 Mises en situation</h2>
-<label>Insultes RP</label>
+<h2>🧠 Mises en situation RP</h2>
+
+<label>Un joueur vous insulte sans raison, que faites-vous ?</label>
 <textarea id="insulte"></textarea>
 
-<label>Fail RP</label>
+<label>Vous êtes témoin d’un fail RP, comment réagissez-vous ?</label>
 <textarea id="failrp"></textarea>
 
 <button type="submit">📨 Envoyer ma candidature</button>
@@ -112,32 +138,33 @@ document.getElementById("whitelistForm").addEventListener("submit", function(e) 
     content:
 `📝 **Nouvelle candidature – LS Midnight RP**
 
-📧 Email: ${email.value}
-🎮 Discord: ${discord.value}
-🎂 Âge IRL: ${ageIrl.value}
-⏰ Dispos: ${dispo.value}
+📧 Email : ${email.value}
+🎮 Discord : ${discord.value}
+🎂 Âge IRL : ${ageIrl.value}
+⏰ Disponibilités : ${dispo.value}
 
-👤 RP: ${prenomRp.value} ${nomRp.value} (${ageRp.value})
+👤 Identité RP :
+${prenomRp.value} ${nomRp.value} (${ageRp.value})
 
-📖 Présentation:
+📖 Présentation RP :
 ${presentation.value}
 
-📚 Background:
+📚 Background RP :
 ${background.value}
 
-🎯 Objectifs:
+🎯 Objectifs RP :
 ${objectifs.value}
 
-🎭 Expérience RP:
+🎭 Expérience RP :
 ${experience.value}
 
-📜 RP sérieux:
+📜 RP sérieux :
 ${serieux.value}
 
-🧠 Insultes RP:
+🧠 Insultes RP :
 ${insulte.value}
 
-❌ Fail RP:
+❌ Fail RP :
 ${failrp.value}`
   };
 
@@ -147,11 +174,11 @@ ${failrp.value}`
     body: JSON.stringify(message)
   })
   .then(() => {
-    alert("✅ Candidature envoyée !");
+    alert("✅ Candidature envoyée avec succès !");
     document.getElementById("whitelistForm").reset();
   })
   .catch(() => {
-    alert("❌ Erreur lors de l’envoi");
+    alert("❌ Erreur lors de l’envoi de la candidature");
   });
 });
 </script>
