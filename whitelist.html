@@ -1,62 +1,160 @@
-<?php
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Candidature RP – LS Midnight RP</title>
+<link rel="stylesheet" href="style.css">
 
-$webhook_url = "https://discord.com/api/webhooks/1463651535115391220/FWeJRwU_rJQCXbpVixEL6gWp6CHpLE93jxdu9YEgJlGHUM9Cg5DTxgBJyUhupfnGw_Ij";
-
-function field($name) {
-    return isset($_POST[$name]) && $_POST[$name] !== "" ? htmlspecialchars($_POST[$name]) : "Non renseigné";
+<style>
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #13182b;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+  color: white;
 }
+h1, h2 { color: #c77dff; }
+label { margin-top: 20px; display: block; font-weight: bold; }
+input, textarea {
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background: #1e2440;
+  color: white;
+}
+textarea { min-height: 120px; }
+button {
+  margin-top: 30px;
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  background: linear-gradient(90deg, #7f5af0, #c77dff);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+</style>
+</head>
 
-$origine = isset($_POST['origine']) ? implode(", ", $_POST['origine']) : "Non renseigné";
+<body>
 
-$message = "**📝 Nouvelle candidature – LS Midnight RP**\n\n"
-. "**📌 Informations générales**\n"
-. "📧 Email : " . field("email") . "\n"
-. "🎮 Discord : " . field("discord") . "\n"
-. "🎂 Âge IRL : " . field("age_irl") . "\n"
-. "⏰ Disponibilités : " . field("disponibilites") . "\n\n"
+<div class="container">
+<h1>📝 Whitelist / Candidature RP – LS Midnight RP</h1>
 
-. "**👤 Identité RP**\n"
-. "🪪 Nom RP : " . field("nom_rp") . "\n"
-. "👤 Prénom RP : " . field("prenom_rp") . "\n"
-. "🎭 Âge RP : " . field("age_rp") . "\n\n"
+<form id="whitelistForm">
 
-. "**📖 Présentation & Background**\n"
-. "🧠 Présentation RP :\n" . field("presentation_rp") . "\n\n"
-. "📚 Background RP :\n" . field("background_rp") . "\n\n"
-. "🎯 Objectifs RP :\n" . field("objectifs_rp") . "\n\n"
+<h2>📌 Informations générales</h2>
+<label>Email *</label>
+<input type="email" id="email" required>
 
-. "**🎭 Expérience RP**\n"
-. "RP déjà pratiqué : " . field("experience_rp") . "\n"
-. "Serveurs RP : " . field("serveurs_rp") . "\n"
-. "Ancienneté RP : " . field("anciennete_rp") . "\n\n"
+<label>Pseudo Discord *</label>
+<input type="text" id="discord" required>
 
-. "**📜 Règlement**\n"
-. "Règlement compris : " . field("reglement") . "\n"
-. "Définition du RP sérieux :\n" . field("rp_serieux") . "\n\n"
+<label>Âge IRL *</label>
+<input type="number" id="ageIrl" required>
 
-. "**🧠 Mises en situation**\n"
-. "Insultes RP :\n" . field("situation_insulte") . "\n\n"
-. "Fail RP :\n" . field("situation_failrp") . "\n\n"
+<label>Disponibilités</label>
+<textarea id="dispo"></textarea>
 
-. "**🌐 Divers**\n"
-. "Origine : " . $origine . "\n"
-. "Pourquoi l’accepter :\n" . field("pourquoi");
+<h2>👤 Identité RP</h2>
+<label>Nom RP *</label>
+<input type="text" id="nomRp" required>
 
-$data = [
-    "content" => $message
-];
+<label>Prénom RP *</label>
+<input type="text" id="prenomRp" required>
 
-$options = [
-    "http" => [
-        "header"  => "Content-Type: application/json",
-        "method"  => "POST",
-        "content" => json_encode($data)
-    ]
-];
+<label>Âge RP</label>
+<input type="number" id="ageRp">
 
-$context = stream_context_create($options);
-file_get_contents($webhook_url, false, $context);
+<h2>📖 Background RP</h2>
+<label>Présentation RP *</label>
+<textarea id="presentation" required></textarea>
 
-// Redirection après envoi
-header("Location: merci.html");
-exit;
+<label>Histoire RP *</label>
+<textarea id="background" required></textarea>
+
+<label>Objectifs RP</label>
+<textarea id="objectifs"></textarea>
+
+<h2>🎭 Expérience RP</h2>
+<label>Déjà fait du RP ?</label>
+<input type="text" id="experience">
+
+<h2>📜 Règlement</h2>
+<label>RP sérieux pour vous ?</label>
+<textarea id="serieux"></textarea>
+
+<h2>🧠 Mises en situation</h2>
+<label>Insultes RP</label>
+<textarea id="insulte"></textarea>
+
+<label>Fail RP</label>
+<textarea id="failrp"></textarea>
+
+<button type="submit">📨 Envoyer ma candidature</button>
+
+</form>
+</div>
+
+<script>
+const webhookURL = "https://discord.com/api/webhooks/1463651535115391220/FWeJRwU_rJQCXbpVixEL6gWp6CHpLE93jxdu9YEgJlGHUM9Cg5DTxgBJyUhupfnGw_Ij";
+
+document.getElementById("whitelistForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const message = {
+    content:
+`📝 **Nouvelle candidature – LS Midnight RP**
+
+📧 Email: ${email.value}
+🎮 Discord: ${discord.value}
+🎂 Âge IRL: ${ageIrl.value}
+⏰ Dispos: ${dispo.value}
+
+👤 RP: ${prenomRp.value} ${nomRp.value} (${ageRp.value})
+
+📖 Présentation:
+${presentation.value}
+
+📚 Background:
+${background.value}
+
+🎯 Objectifs:
+${objectifs.value}
+
+🎭 Expérience RP:
+${experience.value}
+
+📜 RP sérieux:
+${serieux.value}
+
+🧠 Insultes RP:
+${insulte.value}
+
+❌ Fail RP:
+${failrp.value}`
+  };
+
+  fetch(webhookURL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(message)
+  })
+  .then(() => {
+    alert("✅ Candidature envoyée !");
+    document.getElementById("whitelistForm").reset();
+  })
+  .catch(() => {
+    alert("❌ Erreur lors de l’envoi");
+  });
+});
+</script>
+
+</body>
+</html>
