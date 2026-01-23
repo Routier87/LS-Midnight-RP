@@ -163,9 +163,9 @@ main.rules {
   animation: fadeInDown 1s ease-in-out;
 }
 
-/* ===== CAGE ASSOMBRIE (MODIFIÉE) ===== */
+/* ===== CAGE ASSOMBRIE ===== */
 .rules section {
-  background: rgba(0, 0, 0, 0.55); /* cage plus sombre */
+  background: rgba(0, 0, 0, 0.55);
   border-left: 4px solid #f4c542;
   border-radius: 10px;
   padding: 20px;
@@ -183,9 +183,8 @@ main.rules {
   background: rgba(0, 0, 0, 0.25);
   border: 1px dashed #f4c542;
   border-radius: 10px;
-  padding: 15px;
-  margin-top: 10px;
-  font-style: italic;
+  padding: 20px;
+  margin-top: 25px;
   transition: all 0.3s ease;
 }
 
@@ -199,7 +198,7 @@ main.rules {
   text-align: center;
 }
 
-/* ===== SECTION VIDÉO ===== */
+/* ===== VIDEO ===== */
 .video-container {
   position: relative;
   overflow: hidden;
@@ -224,7 +223,7 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* ===== BADGE EN COURS DE DEV ===== */
+/* ===== BADGE DEV ===== */
 .dev-box {
   position: fixed;
   bottom: 20px;
@@ -241,15 +240,64 @@ footer {
   z-index: 50;
 }
 
+/* ===== ACCEPTATION REGLEMENT ===== */
+.accept-input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 2px solid rgba(244, 197, 66, 0.6);
+  background: rgba(0, 0, 0, 0.6);
+  color: #eee;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.accept-input::placeholder {
+  color: #aaa;
+}
+
+.accept-input:focus {
+  border-color: #f4c542;
+  box-shadow: 0 0 12px rgba(244, 197, 66, 0.4);
+}
+
+.accept-btn {
+  width: 100%;
+  padding: 16px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #111;
+  background: linear-gradient(135deg, #f4c542, #e0b12e);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 18px rgba(244, 197, 66, 0.4);
+  transition: all 0.3s ease;
+}
+
+.accept-btn:hover {
+  background: linear-gradient(135deg, #ffd45c, #f4c542);
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(244, 197, 66, 0.6);
+}
+
+.accept-btn:active {
+  transform: scale(0.97);
+}
+
 /* ===== ANIMATIONS ===== */
 @keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes fadeInDown {
-  from {opacity: 0; transform: translateY(-10px);}
-  to {opacity: 1; transform: translateY(0);}
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ===== RESPONSIVE ===== */
