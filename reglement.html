@@ -8,66 +8,74 @@
 
 <body>
 
-<main class="rules">
-
-  <!-- MENU -->
+<header>
   <nav class="navbar">
+    <div class="nav-left">
+      <img src="logo.png" alt="Logo" class="nav-logo">
+      <span class="logo-text">Mon Serveur RP</span>
+    </div>
+
     <ul>
-      <li><a href="index.html" class="active">Accueil</a></li>
-      <li><a href="reglement.html">Règlement</a></li>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="reglement.html" class="active">Règlement</a></li>
       <li><a href="musique.html">Musique</a></li>
       <li><a href="jobs.html">Métiers</a></li>
       <li><a href="whitelist.html">Candidature RP</a></li>
       <li><a href="boutique.html">Boutique</a></li>
     </ul>
   </nav>
+</header>
+
+<main class="rules">
 
   <h1>📜 Règlement Général</h1>
 
-  <!-- REGLEMENT GENERAL -->
   <section>
     <h2>📘 Règlement Général</h2>
     <ul>
-      <li>📋 Nom + prénom RP obligatoires sur Discord.</li>
-      <li>🎮 Présence obligatoire en salon <strong>#InGame</strong>.</li>
+      <li>📋 Nom & prénom RP obligatoires sur Discord.</li>
+      <li>🎮 Présence obligatoire dans le salon <strong>#InGame</strong>.</li>
       <li>🚫 Toute triche est strictement interdite.</li>
-      <li>🖥️ Résolutions étirées / crosshair custom = <strong>ban permanent</strong>.</li>
+      <li>🖥️ Résolutions étirées, crosshair custom = <strong>ban permanent</strong>.</li>
       <li>🎨 Packs autorisés : NVE / Redux.</li>
       <li>🛣️ Routes autorisées : <strong>LA Roads uniquement</strong>.</li>
       <li>📱 Freeloot interdit.</li>
       <li>🔞 Toute scène sexuelle interdite.</li>
-      <li>⚠️ Racisme et toxicité sanctionnés.</li>
-      <li>📩 Ticket uniquement après scène.</li>
+      <li>⚠️ Racisme et toxicité sévèrement sanctionnés.</li>
+      <li>📩 Ticket uniquement après la scène.</li>
     </ul>
   </section>
 
-  <!-- LEXIQUE -->
   <section>
     <h2>📚 Lexique RP</h2>
     <ul>
-      <li><strong>Zone Safe</strong> : Crimes interdits.</li>
-      <li><strong>No Pain</strong> : Ignorer la douleur.</li>
-      <li><strong>No Fear</strong> : Absence de peur.</li>
-      <li><strong>Freekill</strong> : Tuer sans raison RP.</li>
-      <li><strong>Power Gaming</strong> : Action irréaliste.</li>
-      <li><strong>Meta Gaming</strong> : Infos HRP utilisées en RP.</li>
+      <li><strong>Zone Safe</strong> : crimes interdits.</li>
+      <li><strong>No Pain</strong> : ignorer la douleur.</li>
+      <li><strong>No Fear</strong> : absence de peur.</li>
+      <li><strong>Freekill</strong> : tuer sans raison RP.</li>
+      <li><strong>Power Gaming</strong> : action irréaliste.</li>
+      <li><strong>Meta Gaming</strong> : infos HRP utilisées en RP.</li>
     </ul>
   </section>
 
-  <!-- REGLE D'OR -->
   <section>
     <h2>⭐ Règle d’Or</h2>
     <p>
-      Le RP est un jeu collectif.  
-      Fair-play, cohérence et plaisir avant tout.
+      Le rôleplay est un jeu collectif.  
+      Le fair-play, la cohérence et le plaisir priment avant tout.
     </p>
   </section>
 
-  <!-- ACCEPTATION -->
-  <div class="accept-container">
+  <!-- ACCEPTATION REGLEMENT -->
+  <section class="signature-box">
+    <h2 style="text-align:center; margin-bottom:15px;">
+      ✍️ Acceptation du règlement
+    </h2>
+
     <input
       type="text"
       id="memberName"
+      class="accept-input"
       placeholder="Nom du membre"
       required
     >
@@ -75,11 +83,15 @@
     <button class="accept-btn" onclick="sendToDiscord()">
       ✅ J’ai lu et j’accepte le règlement
     </button>
-  </div>
+  </section>
 
 </main>
 
-<!-- SCRIPT WEBHOOK -->
+<footer>
+  © 2026 — Serveur RP • Tous droits réservés
+</footer>
+
+<!-- SCRIPT WEBHOOK DISCORD -->
 <script>
   let alreadySent = false;
 
