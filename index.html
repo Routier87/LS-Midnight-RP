@@ -8,6 +8,7 @@
   <link rel="icon" type="image/png" href="logo.png">
 </head>
 <body style="background: url('banniere.png') no-repeat center center fixed; background-size: cover;">
+
 <header>
   <nav class="navbar">
     <div class="nav-left">
@@ -49,11 +50,15 @@
   <button id="toggle-music">▶️ / ⏸️</button>
   <button id="volume-up">🔊 +</button>
   <button id="volume-down">🔉 -</button>
+  <input type="range" id="volume-bar" min="0" max="1" step="0.01" value="0.5">
+  <div id="current-track">musique.mp3</div>
 </div>
 
 <script src="script.js"></script>
+
 <footer>
   <p>© 2026 LS Midnight RP — Tous droits réservés</p>
 </footer>
+
 </body>
 </html>
