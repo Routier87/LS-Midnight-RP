@@ -3,56 +3,202 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Boutique - Normandie RP</title>
+  <title>✨ LS Midnight RP | Boutique ✨</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="logo.png">
   <style>
-    body { background:#121212; color:white; font-family:Arial, sans-serif; }
-    header { background:#1b1b1b; padding:15px; }
-    .navbar ul { list-style:none; display:flex; gap:20px; padding:0; margin:0; }
-    .navbar ul li a { text-decoration:none; color:white; font-weight:bold; }
-    .navbar ul li a.active { color:#6a9eff; }
+    /* Styles spécifiques à la boutique */
+    body { 
+      background:#121212; 
+      color:white; 
+      font-family:'Poppins', sans-serif; 
+      padding-top: 80px;
+    }
+    
+    main {
+      max-width:1200px; 
+      margin:30px auto; 
+      padding:0 15px; 
+    }
+    
+    h1, h2 { 
+      text-align:center; 
+      margin-bottom:20px; 
+      color: #f4c542;
+    }
 
-    main { max-width:1200px; margin:30px auto; padding:0 15px; }
-    h1, h2 { text-align:center; margin-bottom:20px; }
+    h1 {
+      font-size: 2.3em;
+      text-shadow: 0 0 10px rgba(244, 197, 66, 0.5);
+      margin-bottom: 30px;
+    }
 
     /* Champ pseudo */
-    #username-container { text-align:center; margin-bottom:20px; }
-    #username { padding:10px; border-radius:8px; border:1px solid #444; width:300px; }
+    #username-container { 
+      text-align:center; 
+      margin-bottom:30px; 
+    }
+    
+    #username { 
+      padding:12px; 
+      border-radius:8px; 
+      border:2px solid #f4c542; 
+      width:300px; 
+      max-width: 90%;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      font-family: 'Poppins', sans-serif;
+    }
 
     /* Cages produits */
-    .logo-container { display:flex; justify-content:center; gap:20px; margin-bottom:50px; flex-wrap:wrap; }
-    .logo-box { width:250px; background:#1b1b1b; border-radius:15px; border:2px solid #444; padding:10px; text-align:center; transition:0.3s; }
-    .logo-box:hover { transform:scale(1.05); border-color:#6a9eff; }
-    .logo-box img { width:100%; height:150px; object-fit:contain; border-radius:10px; background:#0f0f0f; }
-    .logo-price { font-size:18px; font-weight:bold; color:#00ff7f; margin-bottom:10px; }
-    .logo-title { margin-top:5px; font-size:16px; font-weight:bold; color:white; }
+    .logo-container { 
+      display:flex; 
+      justify-content:center; 
+      gap:30px; 
+      margin-bottom:50px; 
+      flex-wrap:wrap; 
+    }
+    
+    .logo-box { 
+      width:280px; 
+      background:rgba(0, 0, 0, 0.55); 
+      border-radius:15px; 
+      border:2px solid #444; 
+      padding:20px; 
+      text-align:center; 
+      transition:0.3s; 
+    }
+    
+    .logo-box:hover { 
+      transform:scale(1.05); 
+      border-color:#f4c542; 
+      box-shadow: 0 5px 15px rgba(244, 197, 66, 0.15);
+    }
+    
+    .logo-box img { 
+      width:100%; 
+      height:150px; 
+      object-fit:contain; 
+      border-radius:10px; 
+      background:rgba(0, 0, 0, 0.8); 
+      padding: 10px;
+    }
+    
+    .logo-price { 
+      font-size:20px; 
+      font-weight:bold; 
+      color:#f4c542; 
+      margin-bottom:15px; 
+    }
+    
+    .logo-title { 
+      margin-top:10px; 
+      font-size:18px; 
+      font-weight:bold; 
+      color:white; 
+      margin-bottom: 15px;
+    }
 
-    .buy-btn { margin-top:10px; display:inline-block; background:#6a9eff; padding:8px 15px; border-radius:10px; text-decoration:none; font-weight:bold; color:#000; transition:0.3s; cursor:pointer; }
-    .buy-btn:hover { background:#8ab4ff; transform:scale(1.05); }
+    .buy-btn { 
+      margin-top:10px; 
+      display:inline-block; 
+      background:#f4c542; 
+      padding:10px 20px; 
+      border-radius:10px; 
+      text-decoration:none; 
+      font-weight:bold; 
+      color:#000; 
+      transition:0.3s; 
+      cursor:pointer;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+    }
+    
+    .buy-btn:hover { 
+      background:#ffd75e; 
+      transform:scale(1.05); 
+    }
 
     /* PANIER */
     #cart {
       position: fixed;
-      top: 50px;
+      top: 100px;
       right: 20px;
-      width: 300px;
-      background: #1b1b1b;
-      border: 2px solid #444;
+      width: 320px;
+      background: rgba(0, 0, 0, 0.85);
+      border: 2px solid #f4c542;
       border-radius: 15px;
-      padding: 15px;
+      padding: 20px;
       color: #fff;
       z-index: 1000;
       display: none;
+      backdrop-filter: blur(10px);
     }
-    #cart.show { display:block; }
-    #cart h2 { margin-bottom:10px; color:#f4c542; }
-    #cart ul { list-style:none; padding-left:0; max-height:200px; overflow-y:auto; margin-bottom:10px; }
-    #cart ul li { margin-bottom:5px; }
-    #cart button { background:#f4c542; border:none; padding:10px; border-radius:10px; font-weight:bold; cursor:pointer; transition:0.3s; }
-    #cart button:hover { background:#ffd75e; }
+    
+    #cart.show { 
+      display:block; 
+    }
+    
+    #cart h2 { 
+      margin-bottom:15px; 
+      color:#f4c542; 
+      text-align: center;
+    }
+    
+    #cart ul { 
+      list-style:none; 
+      padding-left:0; 
+      max-height:200px; 
+      overflow-y:auto; 
+      margin-bottom:20px; 
+    }
+    
+    #cart ul li { 
+      margin-bottom:10px; 
+      padding: 8px;
+      background: rgba(244, 197, 66, 0.1);
+      border-radius: 5px;
+    }
+    
+    #cart button { 
+      background:#f4c542; 
+      border:none; 
+      padding:12px 20px; 
+      border-radius:10px; 
+      font-weight:bold; 
+      cursor:pointer; 
+      transition:0.3s; 
+      width: 100%;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+    }
+    
+    #cart button:hover { 
+      background:#ffd75e; 
+      transform: scale(1.05);
+    }
 
     /* Bouton voir le panier */
-    #cart-toggle { position: fixed; top:20px; right:20px; padding:10px 15px; background:#f4c542; border:none; border-radius:10px; font-weight:bold; cursor:pointer; z-index:1001; }
+    #cart-toggle { 
+      position: fixed; 
+      top:90px; 
+      right:20px; 
+      padding:10px 15px; 
+      background:#f4c542; 
+      border:none; 
+      border-radius:10px; 
+      font-weight:bold; 
+      cursor:pointer; 
+      z-index:1001; 
+      transition:0.3s;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    #cart-toggle:hover {
+      background:#ffd75e;
+      transform: scale(1.05);
+    }
 
     /* Animation du panier */
     #cart.highlight {
@@ -61,23 +207,43 @@
     }
 
     @keyframes pulse {
-      0% { transform: scale(1); background-color: #1b1b1b; }
-      50% { transform: scale(1.05); background-color: #2a2a2a; }
-      100% { transform: scale(1); background-color: #1b1b1b; }
+      0% { transform: scale(1); background-color: rgba(0, 0, 0, 0.85); }
+      50% { transform: scale(1.05); background-color: rgba(0, 0, 0, 0.95); }
+      100% { transform: scale(1); background-color: rgba(0, 0, 0, 0.85); }
     }
 
     /* Notification flottante */
     #notification {
       position: fixed;
-      top: 60px;
+      top: 80px;
       right: 20px;
-      background: #6a9eff;
+      background: #f4c542;
       color: #000;
-      padding: 10px 15px;
+      padding: 12px 20px;
       border-radius: 8px;
       font-weight: bold;
       display: none;
       z-index: 1002;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      #cart {
+        width: 90%;
+        left: 5%;
+        right: 5%;
+      }
+      
+      #cart-toggle {
+        top: 100px;
+      }
+      
+      #notification {
+        width: 90%;
+        left: 5%;
+        right: 5%;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -85,21 +251,24 @@
   <header>
     <nav class="navbar">
       <div class="nav-left">
-        <img src="logo.png" alt="Logo Normandie RP" class="nav-logo" style="height:40px;">
-        <span class="logo-text">Normandie RP</span>
+        <img src="logo.png" alt="Logo LS Midnight RP" class="nav-logo">
+        <span class="logo-text">✨LS Midnight RP✨</span>
       </div>
       <ul>
         <li><a href="index.html">Accueil</a></li>
-        <li><a href="reglement.html">Règlement</a></li>
-        <li><a href="whitelist.html">Whitelist</a></li>
+        <li><a href="gouvernement.html">Gouvernement</a></li>
+        <li><a href="reglement.html">Règlement RP</a></li>
+        <li><a href="musique.html">Musique</a></li>
         <li><a href="jobs.html">Métiers</a></li>
+        <li><a href="whitelist.html">Candidature RP</a></li>
         <li><a href="boutique.html" class="active">Boutique</a></li>
+        <li><a href="reglement-discord.html">Règlement Discord</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <h1>🛒 Boutique Normandie RP</h1>
+    <h1>🛒 Boutique LS Midnight RP</h1>
 
     <!-- Champ pseudo -->
     <div id="username-container">
@@ -143,7 +312,7 @@
         <button class="buy-btn" onclick="addToCart('VIP Argent', 'indisponible')">Acheter</button>
       </div>
       <div class="logo-box">
-        <div class="logo-price" style="color:gold;">indisponible</div>
+        <div class="logo-price" style="color:#f4c542;">indisponible</div>
         <img src="vip-or.png" alt="VIP Or">
         <div class="logo-title">VIP Or</div>
         <button class="buy-btn" onclick="addToCart('VIP Or', 'indisponible')">Acheter</button>
@@ -190,7 +359,7 @@
       // Notification flottante
       notification.textContent = `✅ Article ajouté : ${itemName}`;
       notification.style.display = 'block';
-      setTimeout(() => { notification.style.display = 'none'; }, 1000);
+      setTimeout(() => { notification.style.display = 'none'; }, 1500);
     }
 
     function renderCart() {
@@ -213,7 +382,7 @@
           content: `<@&${ROLE_STAFF_ID}> Nouvel achat !`,
           embeds: [{
             title: "🛒 Achat boutique",
-            color: 0x6a9eff,
+            color: 0xf4c542,
             fields: [
               { name: "Article", value: item.name, inline: true },
               { name: "Prix", value: item.price, inline: true },
@@ -234,5 +403,9 @@
       renderCart();
     }
   </script>
+  
+  <footer>
+    <p>© 2026 LS Midnight RP — Tous droits réservés</p>
+  </footer>
 </body>
 </html>
