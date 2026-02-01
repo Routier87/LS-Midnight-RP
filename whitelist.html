@@ -1,189 +1,67 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Candidature RP – LS Midnight RP</title>
-<link rel="stylesheet" href="style.css">
-
-<style>
-body {
-  background: url('banniere.png') no-repeat center center fixed;
-  background-size: cover;
-  font-family: Arial, sans-serif;
-}
-
-.container {
-  max-width: 900px;
-  margin: 60px auto;
-  background: rgba(19, 24, 43, 0.95);
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.6);
-  color: white;
-}
-
-h1, h2 { color: #c77dff; }
-
-label {
-  display: block;
-  margin-top: 20px;
-  font-weight: bold;
-}
-
-input, textarea {
-  width: 100%;
-  margin-top: 8px;
-  padding: 10px;
-  border-radius: 6px;
-  border: none;
-  background: #1e2440;
-  color: white;
-}
-
-textarea { min-height: 120px; }
-
-button {
-  margin-top: 30px;
-  width: 100%;
-  padding: 15px;
-  font-size: 18px;
-  background: linear-gradient(90deg, #7f5af0, #c77dff);
-  border: none;
-  border-radius: 8px;
-  color: white;
-  cursor: pointer;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✨ LS Midnight RP | Candidature RP ✨</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="logo.png">
 </head>
+<body style="background: url('banniere.png') no-repeat center center fixed; background-size: cover;">
+<header>
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="logo.png" alt="Logo LS Midnight RP" class="nav-logo">
+      <span class="logo-text">✨LS Midnight RP✨</span>
+    </div>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="gouvernement.html">Gouvernement</a></li>
+      <li><a href="reglement.html">Règlement RP</a></li>
+      <li><a href="musique.html">Musique</a></li>
+      <li><a href="jobs.html">Métiers</a></li>
+      <li><a href="whitelist.html" class="active">Candidature RP</a></li>
+      <li><a href="boutique.html">Boutique</a></li>
+      <li><a href="reglement-discord.html">Règlement Discord</a></li>
+    </ul>
+  </nav>
+</header>
 
-<body>
+<main class="rules">
+  <h1>📋 Candidature Whitelist</h1>
+  
+  <section>
+    <h2>Postuler pour rejoindre LS Midnight RP</h2>
+    <p>Pour rejoindre notre serveur RP, vous devez remplir le formulaire de candidature. Assurez-vous d'avoir lu et compris le règlement avant de postuler.</p>
+    
+    <div class="signature-box">
+      <p><strong>⚠️ Important :</strong> Votre candidature sera traitée sous 24 à 48 heures. Une fois accepté, vous recevrez une invitation Discord.</p>
+    </div>
+  </section>
 
-<div class="container">
-<h1>📝 Candidature RP – LS Midnight RP</h1>
+  <section>
+    <h2>Formulaire de Candidature</h2>
+    <p>Le formulaire de candidature est disponible sur notre serveur Discord.</p>
+    
+    <div style="text-align: center; margin: 30px 0;">
+      <a href="https://discord.gg/mcZ5xSpgcF" target="_blank" class="btn-discord" style="font-size: 1.2em; padding: 15px 30px;">
+        📝 Accéder au formulaire sur Discord
+      </a>
+    </div>
+    
+    <p style="color: #ccc; text-align: center;">
+      Après avoir rejoint le Discord, rendez-vous dans le salon #📋-candidatures pour postuler.
+    </p>
+  </section>
 
-<form id="whitelistForm">
+  <div class="discord-link">
+    💬 Besoin d'aide ? Contactez-nous sur Discord :  
+    <a href="https://discord.gg/mcZ5xSpgcF" target="_blank" class="btn-discord">👉 Rejoindre le Discord</a>
+  </div>
+</main>
 
-<h2>📌 Informations générales</h2>
-
-<label>Email *</label>
-<input type="email" id="email" required>
-
-<label>Pseudo Discord *</label>
-<input type="text" id="discord" required>
-
-<label>ID Discord *</label>
-<input type="text" id="discordId" required>
-
-<label>Âge IRL *</label>
-<input type="number" id="ageIrl" required>
-
-<label>Disponibilités</label>
-<textarea id="dispo"></textarea>
-
-<h2>👤 Identité RP</h2>
-
-<label>Nom RP *</label>
-<input type="text" id="nomRp" required>
-
-<label>Prénom RP *</label>
-<input type="text" id="prenomRp" required>
-
-<label>Âge RP</label>
-<input type="number" id="ageRp">
-
-<h2>📖 Présentation & Background RP</h2>
-
-<label>Présentation RP *</label>
-<textarea id="presentation" required></textarea>
-
-<label>Background RP *</label>
-<textarea id="background" required></textarea>
-
-<label>Objectifs RP</label>
-<textarea id="objectifs"></textarea>
-
-<h2>🎭 Expérience RP</h2>
-
-<label>Expérience RP</label>
-<textarea id="experience"></textarea>
-
-<h2>📜 Sérieux RP</h2>
-
-<label>Que signifie pour vous le RP sérieux ?</label>
-<textarea id="serieux"></textarea>
-
-<h2>🧠 Mises en situation</h2>
-
-<label>Un joueur vous insulte sans raison</label>
-<textarea id="insulte"></textarea>
-
-<label>Vous voyez un fail RP</label>
-<textarea id="failrp"></textarea>
-
-<button type="submit">📨 Envoyer la candidature</button>
-
-</form>
-</div>
-
-<script>
-const webhookURL = "https://discord.com/api/webhooks/1463954984277115043/RFSuovYY1V-a_J14-AHpKUunUN_QjpDkgPwEMTOYTvNd8-ruxbxlrhnaJ2i9kzi-M1j5";
-const staffRoleId = "1459918620988801177";
-
-document.getElementById("whitelistForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  const message = {
-    content:
-`🚨 <@&${staffRoleId}> **NOUVELLE CANDIDATURE RP – LS MIDNIGHT RP**
-
-👤 **Candidat**
-• Discord : ${discord.value}
-• ID Discord : <@${discordId.value}>
-• Email : ${email.value}
-• Âge IRL : ${ageIrl.value}
-• Disponibilités : ${dispo.value}
-
-🎭 **Identité RP**
-• Nom : ${prenomRp.value} ${nomRp.value}
-• Âge RP : ${ageRp.value}
-
-📖 **Présentation RP**
-${presentation.value}
-
-📚 **Background RP**
-${background.value}
-
-🎯 **Objectifs RP**
-${objectifs.value}
-
-🎮 **Expérience RP**
-${experience.value}
-
-📜 **RP sérieux**
-${serieux.value}
-
-🧠 **Situation – Insulte**
-${insulte.value}
-
-❌ **Situation – Fail RP**
-${failrp.value}`
-  };
-
-  fetch(webhookURL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(message)
-  })
-  .then(() => {
-    alert("✅ Candidature envoyée !");
-    document.getElementById("whitelistForm").reset();
-  })
-  .catch(() => {
-    alert("❌ Erreur lors de l’envoi");
-  });
-});
-</script>
-
+<footer>
+  <p>© 2026 LS Midnight RP — Tous droits réservés</p>
+</footer>
 </body>
 </html>
