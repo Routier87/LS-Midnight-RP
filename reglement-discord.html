@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✨ LS Midnight RP | Règlement Discord ✨</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    /* Styles additionnels uniquement pour cette page */
+    .rules-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .rules-header h1 {
+      color: #f4c542;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    
+    .rules-header p {
+      color: #ddd;
+      font-size: 1.1em;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .rules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+    
+    .rule-card {
+      background: rgba(0, 0, 0, 0.55);
+      border-radius: 10px;
+      padding: 20px;
+      border-left: 4px solid #f4c542;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    
+    .rule-card:hover {
+      background: rgba(0, 0, 0, 0.65);
+      box-shadow: 0 5px 15px rgba(244, 197, 66, 0.15);
+    }
+    
+    .rule-title {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .rule-number {
+      background: rgba(244, 197, 66, 0.15);
+      color: #f4c542;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+      font-weight: bold;
+    }
+    
+    .rule-card h3 {
+      color: #f4c542;
+      margin-bottom: 10px;
+      font-size: 1.3em;
+    }
+    
+    .rule-card p {
+      color: #ccc;
+      line-height: 1.6;
+    }
+    
+    .sanctions-section {
+      background: rgba(0, 0, 0, 0.55);
+      border-radius: 10px;
+      padding: 25px;
+      margin: 40px 0;
+      border: 1px dashed #f4c542;
+    }
+    
+    .sanctions-section h2 {
+      color: #f4c542;
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 1.8em;
+    }
+    
+    .sanctions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    
+    .sanction-card {
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+      border-top: 3px solid #f4c542;
+    }
+    
+    .sanction-card h3 {
+      color: #f4c542;
+      margin-bottom: 10px;
+    }
+    
+    .sanction-card p {
+      color: #bbb;
+      font-size: 0.95em;
+    }
+    
+    .channels-section {
+      background: rgba(0, 0, 0, 0.55);
+      border-radius: 10px;
+      padding: 25px;
+      margin-top: 40px;
+      border-left: 4px solid #f4c542;
+    }
+    
+    .channels-section h2 {
+      color: #f4c542;
+      margin-bottom: 20px;
+    }
+    
+    .channel-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 15px;
+    }
+    
+    .channel-item {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 3px solid #f4c542;
+    }
+    
+    .channel-item h4 {
+      color: #f4c542;
+      margin-bottom: 5px;
+    }
+    
+    .channel-item p {
+      color: #ccc;
+      font-size: 0.95em;
+    }
+    
+    .rules-footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(244, 197, 66, 0.2);
+    }
+    
+    .discord-link-large {
+      display: inline-block;
+      background: #5865F2;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: all 0.3s ease;
+      margin: 10px;
+    }
+    
+    .discord-link-large:hover {
+      background: #4752C4;
+      transform: scale(1.05);
+    }
+    
+    @media (max-width: 768px) {
+      .rules-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .sanctions-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .channel-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body style="background: url('banniere.png') no-repeat center center fixed; background-size: cover;">
+<header>
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="logo.png" alt="Logo LS Midnight RP" class="nav-logo">
+      <span class="logo-text">✨LS Midnight RP✨</span>
+    </div>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="gouvernement.html">Gouvernement</a></li>
+      <li><a href="reglement.html" class="active">Règlement</a></li>
+      <li><a href="musique.html">Musique</a></li>
+      <li><a href="jobs.html">Métiers</a></li>
+      <li><a href="whitelist.html">Candidature RP</a></li>
+      <li><a href="boutique.html">Boutique</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="rules">
+  <div class="rules-header">
+    <h1>📜 Règlement du Serveur Discord</h1>
+    <p>Pour garantir une communauté respectueuse et agréable pour tous, voici les règles à respecter sur notre serveur Discord. En rejoignant le serveur, vous acceptez automatiquement ce règlement.</p>
+  </div>
+
+  <section>
+    <h2 style="color: #f4c542; margin-bottom: 20px;">📌 Règles Générales</h2>
+    
+    <div class="rules-grid">
+      <div class="rule-card">
+        <div class="rule-title">
+          <div class="rule-number">1</div>
+          <h3>Respect et courtoisie</h3>
+        </div>
+        <p>Tous les membres doivent se respecter mutuellement. Aucune forme de harcèlement, d'insultes, de discriminations (racisme, sexisme, homophobie, etc.) ou de propos haineux n'est tolérée.</p>
+      </div>
+      
+      <div class="rule-card">
+        <div class="rule-title">
+          <div class="rule-number">2</div>
+          <h3>Pseudonymes appropriés</h3>
+        </div>
+        <p>Votre pseudo et photo de profil doivent être appropriés. Les noms insultants, provocants ou contenant des informations personnelles ne sont pas autorisés.</p>
+      </div>
+      
+      <div class="rule-card">
+        <div class="rule-title">
+          <div class="rule-number">3</div>
+          <h3>Interdiction du spam</h3>
+        </div>
+        <p>Le spam sous toutes ses formes est interdit : messages répétitifs, mentions abusives, flood, messages en majuscules excessives, etc. Utilisez les salons appropriés.</p>
+      </div>
+      
+      <div class="rule-card">
+        <div class="rule-title">
+          <div class="rule-number">4</div>
+          <h3>Contenu approprié</h3>
+        </div>
+        <p>Les contenus NSFW (Not Safe For Work), violents, gore, ou à caractère explicite sont strictement interdits. Respectez les mentions d'âge.</p>
+      </div>
+      
+      <div class="rule-card">
+        <div class="rule-title">
+          <div class="rule-number">5</div>
+          <h3>Langue française</h3>
+        </div>
+        <p>La langue principale du serveur est le français. Les discussions dans d'autres langues doivent se faire en messages privés ou dans les salons dédiés.</p>
+      </div>
+      
+      <div class="rule-card">
+        <div class="rule-title">
+          <div class="rule-number">6</div>
+          <h3>Publicité interdite</h3>
+        </div>
+        <p>Toute publicité pour d'autres serveurs Discord, sites web ou services est interdite sans l'accord préalable de l'administration.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 style="color: #f4c542; margin-bottom: 20px;">💬 Règles des Salons</h2>
+    
+    <div class="rules-grid">
+      <div class="rule-card">
+        <div class="rule-title">
+          <div class="rule-number">1</div>
+          <h3>Utilisation des salons</h3>
+        </div>
+        <p>Utilisez les salons appropriés pour vos discussions. Respectez le sujet de chaque salon et ne déviez pas des conversations principales.</p>
+      </div>
+      
+      <div class="rule-card">
+        <div class="rule-title">
+          <div class="rule-number">2</div>
+          <h3>Salons vocaux</h3>
+        </div>
+        <p>Dans les salons vocaux, évitez les bruits de fond excessifs, l'écho, et respectez la parole de chacun. Le troll vocal est interdit.</p>
+      </div>
+      
+      <div class="rule-card">
+        <div class="rule-title">
+          <div class="rule-number">3</div>
+          <h3>Salons textuels</h3>
+        </div>
+        <p>Évitez les messages trop longs (walls of text). Utilisez les spoilers (`||texte||`) pour cacher du contenu potentiellement sensible.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sanctions-section">
+    <h2>⚖️ Sanctions et Avertissements</h2>
+    
+    <div class="sanctions-grid">
+      <div class="sanction-card">
+        <h3>⚠️ Avertissement</h3>
+        <p>Pour les premières infractions mineures. 3 avertissements = mute temporaire.</p>
+      </div>
+      
+      <div class="sanction-card">
+        <h3>🔇 Mute Temporaire</h3>
+        <p>Interdiction de parler pendant une durée déterminée (de 1h à 24h selon la gravité).</p>
+      </div>
+      
+      <div class="sanction-card">
+        <h3>👢 Kick</h3>
+        <p>Expulsion du serveur sans suppression du compte. Vous pouvez revenir immédiatement.</p>
+      </div>
+      
+      <div class="sanction-card">
+        <h3>🔨 Ban Temporaire</h3>
+        <p>Bannissement temporaire (de 1 à 30 jours) pour infractions graves ou répétées.</p>
+      </div>
+      
+      <div class="sanction-card">
+        <h3>⛔ Ban Définitif</h3>
+        <p>Bannissement permanent pour infractions très graves ou multi-récidive.</p>
+      </div>
+    </div>
+    
+    <div class="signature-box">
+      <p><strong>Note :</strong> L'équipe de modération se réserve le droit de sanctionner toute infraction non explicitement mentionnée dans ce règlement si elle nuit à la bonne ambiance du serveur.</p>
+    </div>
+  </section>
+
+  <section class="channels-section">
+    <h2>📁 Guide des Salons Principaux</h2>
+    
+    <div class="channel-list">
+      <div class="channel-item">
+        <h4>#📋-accueil</h4>
+        <p>Salon d'arrivée avec les règles et informations importantes. Présentez-vous ici !</p>
+      </div>
+      
+      <div class="channel-item">
+        <h4>#💬-général</h4>
+        <p>Pour discuter de tout et de rien. Respectez les règles de base de conversation.</p>
+      </div>
+      
+      <div class="channel-item">
+        <h4>#🎮-gaming</h4>
+        <p>Discussions sur les jeux vidéo, partage de moments de jeu, organisation de sessions.</p>
+      </div>
+      
+      <div class="channel-item">
+        <h4>#🤝-entraide</h4>
+        <p>Besoin d'aide sur le serveur RP ? Posez vos questions ici !</p>
+      </div>
+      
+      <div class="channel-item">
+        <h4>#📢-annonces</h4>
+        <p>Annonces officielles du serveur. Salon en lecture seule pour les membres.</p>
+      </div>
+      
+      <div class="channel-item">
+        <h4>#🚨-signalements</h4>
+        <p>Pour signaler un problème ou un membre en infraction. Utilisez-le avec sérieux.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="rules-footer">
+    <p style="color: #f4c542; font-size: 1.2em; margin-bottom: 20px;"><strong>En rejoignant le serveur Discord, vous acceptez l'intégralité de ce règlement.</strong></p>
+    
+    <a href="https://discord.gg/mcZ5xSpgcF" target="_blank" class="discord-link-large">
+      Rejoindre notre Discord
+    </a>
+    
+    <p style="margin-top: 30px; color: #bbb; font-style: italic;">
+      Dernière mise à jour : Février 2026<br>
+      L'équipe de modération se réserve le droit de mettre à jour ce règlement à tout moment.
+    </p>
+  </div>
+</main>
+
+<audio id="bg-music" loop>
+  <source src="musique.mp3" type="audio/mpeg">
+</audio>
+
+<div class="music-control">
+  <button id="toggle-music">▶️ / ⏸️</button>
+  <button id="volume-up">🔊 +</button>
+  <button id="volume-down">🔉 -</button>
+</div>
+
+<script src="script.js"></script>
+<footer>
+  <p>© 2026 LS Midnight RP — Tous droits réservés</p>
+</footer>
+</body>
+</html>
