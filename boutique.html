@@ -1,411 +1,296 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>✨ LS Midnight RP | Boutique ✨</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="logo.png">
-  <style>
-    /* Styles spécifiques à la boutique */
-    body { 
-      background:#121212; 
-      color:white; 
-      font-family:'Poppins', sans-serif; 
-      padding-top: 80px;
-    }
-    
-    main {
-      max-width:1200px; 
-      margin:30px auto; 
-      padding:0 15px; 
-    }
-    
-    h1, h2 { 
-      text-align:center; 
-      margin-bottom:20px; 
-      color: #f4c542;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>✨ LS Midnight RP | Boutique ✨</title>
 
-    h1 {
-      font-size: 2.3em;
-      text-shadow: 0 0 10px rgba(244, 197, 66, 0.5);
-      margin-bottom: 30px;
-    }
+<style>
+body {
+  background:#121212;
+  color:white;
+  font-family:'Poppins', sans-serif;
+  padding-top:80px;
+  margin:0;
+}
 
-    /* Champ pseudo */
-    #username-container { 
-      text-align:center; 
-      margin-bottom:30px; 
-    }
-    
-    #username { 
-      padding:12px; 
-      border-radius:8px; 
-      border:2px solid #f4c542; 
-      width:300px; 
-      max-width: 90%;
-      background: rgba(0,0,0,0.6);
-      color: white;
-      font-family: 'Poppins', sans-serif;
-    }
+main {
+  max-width:1200px;
+  margin:30px auto;
+  padding:0 15px;
+}
 
-    /* Cages produits */
-    .logo-container { 
-      display:flex; 
-      justify-content:center; 
-      gap:30px; 
-      margin-bottom:50px; 
-      flex-wrap:wrap; 
-    }
-    
-    .logo-box { 
-      width:280px; 
-      background:rgba(0, 0, 0, 0.55); 
-      border-radius:15px; 
-      border:2px solid #444; 
-      padding:20px; 
-      text-align:center; 
-      transition:0.3s; 
-    }
-    
-    .logo-box:hover { 
-      transform:scale(1.05); 
-      border-color:#f4c542; 
-      box-shadow: 0 5px 15px rgba(244, 197, 66, 0.15);
-    }
-    
-    .logo-box img { 
-      width:100%; 
-      height:150px; 
-      object-fit:contain; 
-      border-radius:10px; 
-      background:rgba(0, 0, 0, 0.8); 
-      padding: 10px;
-    }
-    
-    .logo-price { 
-      font-size:20px; 
-      font-weight:bold; 
-      color:#f4c542; 
-      margin-bottom:15px; 
-    }
-    
-    .logo-title { 
-      margin-top:10px; 
-      font-size:18px; 
-      font-weight:bold; 
-      color:white; 
-      margin-bottom: 15px;
-    }
+h1, h2 {
+  text-align:center;
+  color:#f4c542;
+}
 
-    .buy-btn { 
-      margin-top:10px; 
-      display:inline-block; 
-      background:#f4c542; 
-      padding:10px 20px; 
-      border-radius:10px; 
-      text-decoration:none; 
-      font-weight:bold; 
-      color:#000; 
-      transition:0.3s; 
-      cursor:pointer;
-      border: none;
-      font-family: 'Poppins', sans-serif;
-      font-size: 16px;
-    }
-    
-    .buy-btn:hover { 
-      background:#ffd75e; 
-      transform:scale(1.05); 
-    }
+#username-container {
+  text-align:center;
+  margin-bottom:30px;
+}
 
-    /* PANIER */
-    #cart {
-      position: fixed;
-      top: 100px;
-      right: 20px;
-      width: 320px;
-      background: rgba(0, 0, 0, 0.85);
-      border: 2px solid #f4c542;
-      border-radius: 15px;
-      padding: 20px;
-      color: #fff;
-      z-index: 1000;
-      display: none;
-      backdrop-filter: blur(10px);
-    }
-    
-    #cart.show { 
-      display:block; 
-    }
-    
-    #cart h2 { 
-      margin-bottom:15px; 
-      color:#f4c542; 
-      text-align: center;
-    }
-    
-    #cart ul { 
-      list-style:none; 
-      padding-left:0; 
-      max-height:200px; 
-      overflow-y:auto; 
-      margin-bottom:20px; 
-    }
-    
-    #cart ul li { 
-      margin-bottom:10px; 
-      padding: 8px;
-      background: rgba(244, 197, 66, 0.1);
-      border-radius: 5px;
-    }
-    
-    #cart button { 
-      background:#f4c542; 
-      border:none; 
-      padding:12px 20px; 
-      border-radius:10px; 
-      font-weight:bold; 
-      cursor:pointer; 
-      transition:0.3s; 
-      width: 100%;
-      font-family: 'Poppins', sans-serif;
-      font-size: 16px;
-    }
-    
-    #cart button:hover { 
-      background:#ffd75e; 
-      transform: scale(1.05);
-    }
+#username {
+  padding:12px;
+  border-radius:8px;
+  border:2px solid #f4c542;
+  width:300px;
+  background:#1e1e1e;
+  color:white;
+}
 
-    /* Bouton voir le panier */
-    #cart-toggle { 
-      position: fixed; 
-      top:90px; 
-      right:20px; 
-      padding:10px 15px; 
-      background:#f4c542; 
-      border:none; 
-      border-radius:10px; 
-      font-weight:bold; 
-      cursor:pointer; 
-      z-index:1001; 
-      transition:0.3s;
-      font-family: 'Poppins', sans-serif;
-    }
+.logo-container {
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  flex-wrap:wrap;
+  margin-bottom:50px;
+}
 
-    #cart-toggle:hover {
-      background:#ffd75e;
-      transform: scale(1.05);
-    }
+.logo-box {
+  width:260px;
+  background:#1e1e1e;
+  border-radius:15px;
+  border:2px solid #333;
+  padding:20px;
+  text-align:center;
+  transition:0.3s;
+}
 
-    /* Animation du panier */
-    #cart.highlight {
-      animation: pulse 0.3s ease;
-      border-color: #f4c542;
-    }
+.logo-box:hover {
+  transform:scale(1.05);
+  border-color:#f4c542;
+}
 
-    @keyframes pulse {
-      0% { transform: scale(1); background-color: rgba(0, 0, 0, 0.85); }
-      50% { transform: scale(1.05); background-color: rgba(0, 0, 0, 0.95); }
-      100% { transform: scale(1); background-color: rgba(0, 0, 0, 0.85); }
-    }
+.logo-box img {
+  width:100%;
+  height:150px;
+  object-fit:contain;
+  margin-bottom:10px;
+}
 
-    /* Notification flottante */
-    #notification {
-      position: fixed;
-      top: 80px;
-      right: 20px;
-      background: #f4c542;
-      color: #000;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-weight: bold;
-      display: none;
-      z-index: 1002;
-      font-family: 'Poppins', sans-serif;
-    }
+.logo-title {
+  font-size:18px;
+  margin:10px 0;
+}
 
-    @media (max-width: 768px) {
-      #cart {
-        width: 90%;
-        left: 5%;
-        right: 5%;
-      }
-      
-      #cart-toggle {
-        top: 100px;
-      }
-      
-      #notification {
-        width: 90%;
-        left: 5%;
-        right: 5%;
-        text-align: center;
-      }
-    }
-  </style>
+.buy-btn {
+  background:#f4c542;
+  padding:10px 20px;
+  border-radius:10px;
+  border:none;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.buy-btn:hover {
+  background:#ffd75e;
+}
+
+#cart {
+  position:fixed;
+  top:100px;
+  right:20px;
+  width:300px;
+  background:#1e1e1e;
+  border:2px solid #f4c542;
+  border-radius:15px;
+  padding:20px;
+  display:none;
+}
+
+#cart.show {
+  display:block;
+}
+
+#cart ul {
+  list-style:none;
+  padding:0;
+  max-height:200px;
+  overflow-y:auto;
+}
+
+#cart li {
+  margin-bottom:8px;
+}
+
+#cart button {
+  width:100%;
+  padding:10px;
+  border:none;
+  border-radius:10px;
+  background:#f4c542;
+  font-weight:bold;
+  cursor:pointer;
+}
+</style>
 </head>
+
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="nav-left">
-        <img src="logo.png" alt="Logo LS Midnight RP" class="nav-logo">
-        <span class="logo-text">✨LS Midnight RP✨</span>
-      </div>
-      <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="gouvernement.html">Gouvernement</a></li>
-        <li><a href="reglement.html">Règlement RP</a></li>
-        <li><a href="musique.html">Musique</a></li>
-        <li><a href="jobs.html">Métiers</a></li>
-        <li><a href="whitelist.html">Candidature RP</a></li>
-        <li><a href="boutique.html" class="active">Boutique</a></li>
-        <li><a href="reglement-discord.html">Règlement Discord</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main>
-    <h1>🛒 Boutique LS Midnight RP</h1>
+<main>
+<h1>🛒 Boutique LS Midnight RP</h1>
 
-    <!-- Champ pseudo -->
-    <div id="username-container">
-      <input type="text" id="username" placeholder="Entrez votre Nom et prénom RP" />
-    </div>
+<div id="username-container">
+<input type="text" id="username" placeholder="Entrez votre Nom RP">
+</div>
 
-    <h2>💰 Offres K€</h2>
-    <div class="logo-container">
-      <div class="logo-box">
-        <div class="logo-price">indisponible</div>
-        <img src="10.000k.png" alt="10K">
-        <div class="logo-title">10K</div>
-        <button class="buy-btn" onclick="addToCart('10K', 'indisponible')">Acheter</button>
-      </div>
-      <div class="logo-box">
-        <div class="logo-price">indisponible</div>
-        <img src="50.000k.png" alt="50K">
-        <div class="logo-title">50K</div>
-        <button class="buy-btn" onclick="addToCart('50K', 'indisponible')">Acheter</button>
-      </div>
-      <div class="logo-box">
-        <div class="logo-price">indisponible</div>
-        <img src="100.000k.png" alt="100K">
-        <div class="logo-title">100K</div>
-        <button class="buy-btn" onclick="addToCart('100K', 'indisponible')">Acheter</button>
-      </div>
-    </div>
+<h2>💰 Offres K€</h2>
+<div class="logo-container">
 
-    <h2>⭐ Offres VIP</h2>
-    <div class="logo-container">
-      <div class="logo-box">
-        <div class="logo-price" style="color:#cd7f32;">indisponible</div>
-        <img src="vip-bronze.png" alt="VIP Bronze">
-        <div class="logo-title">VIP Bronze</div>
-        <button class="buy-btn" onclick="addToCart('VIP Bronze', 'indisponible')">Acheter</button>
-      </div>
-      <div class="logo-box">
-        <div class="logo-price" style="color:#c0c0c0;">indisponible</div>
-        <img src="vip-argent.png" alt="VIP Argent">
-        <div class="logo-title">VIP Argent</div>
-        <button class="buy-btn" onclick="addToCart('VIP Argent', 'indisponible')">Acheter</button>
-      </div>
-      <div class="logo-box">
-        <div class="logo-price" style="color:#f4c542;">indisponible</div>
-        <img src="vip-or.png" alt="VIP Or">
-        <div class="logo-title">VIP Or</div>
-        <button class="buy-btn" onclick="addToCart('VIP Or', 'indisponible')">Acheter</button>
-      </div>
-    </div>
-  </main>
-
-  <!-- PANIER -->
-  <div id="cart">
-    <h2>🛒 Panier</h2>
-    <ul id="cart-items"></ul>
-    <button onclick="checkout()">Procéder au paiement</button>
+  <div class="logo-box">
+    <img src="10.000k.png">
+    <div class="logo-title">10K</div>
+    <button class="buy-btn"
+      onclick="addToCart('10K', 'https://TONSITE.COM/10.000k.png')">
+      Acheter
+    </button>
   </div>
 
-  <button id="cart-toggle" onclick="document.getElementById('cart').classList.toggle('show')">Voir le panier</button>
+  <div class="logo-box">
+    <img src="50.000k.png">
+    <div class="logo-title">50K</div>
+    <button class="buy-btn"
+      onclick="addToCart('50K', 'https://TONSITE.COM/50.000k.png')">
+      Acheter
+    </button>
+  </div>
 
-  <!-- Notification -->
-  <div id="notification"></div>
+  <div class="logo-box">
+    <img src="100.000k.png">
+    <div class="logo-title">100K</div>
+    <button class="buy-btn"
+      onclick="addToCart('100K', 'https://TONSITE.COM/100.000k.png')">
+      Acheter
+    </button>
+  </div>
 
-  <script>
-    const cartItems = [];
-    const cartList = document.getElementById('cart-items');
-    const usernameInput = document.getElementById('username');
-    const cartElement = document.getElementById('cart');
-    const notification = document.getElementById('notification');
+</div>
 
-    const WEBHOOK_URL = "https://discord.com/api/webhooks/1444488116483391599/DDaOnl7TTtwQQUuwbeZgFEPqLfEYDDUh2zxQSBU4daeNikbkSRWguhBn8w2d9OUrS5tm";
-    const ROLE_STAFF_ID = "1424110584424828997";
+<h2>⭐ Offres VIP</h2>
+<div class="logo-container">
 
-    function addToCart(itemName, itemPrice) {
-      const username = usernameInput.value.trim();
-      if (!username) {
-        alert("Veuillez entrer votre pseudo RP avant d'acheter !");
-        return;
-      }
+  <div class="logo-box">
+    <img src="vip-bronze.png">
+    <div class="logo-title">VIP Bronze</div>
+    <button class="buy-btn"
+      onclick="addToCart('VIP Bronze', 'https://TONSITE.COM/vip-bronze.png')">
+      Acheter
+    </button>
+  </div>
 
-      cartItems.push({ name: itemName, price: itemPrice, user: username });
-      renderCart();
+  <div class="logo-box">
+    <img src="vip-argent.png">
+    <div class="logo-title">VIP Argent</div>
+    <button class="buy-btn"
+      onclick="addToCart('VIP Argent', 'https://TONSITE.COM/vip-argent.png')">
+      Acheter
+    </button>
+  </div>
 
-      // Effet visuel panier
-      cartElement.classList.add('highlight');
-      setTimeout(() => cartElement.classList.remove('highlight'), 300);
+  <div class="logo-box">
+    <img src="vip-or.png">
+    <div class="logo-title">VIP Or</div>
+    <button class="buy-btn"
+      onclick="addToCart('VIP Or', 'https://TONSITE.COM/vip-or.png')">
+      Acheter
+    </button>
+  </div>
 
-      // Notification flottante
-      notification.textContent = `✅ Article ajouté : ${itemName}`;
-      notification.style.display = 'block';
-      setTimeout(() => { notification.style.display = 'none'; }, 1500);
-    }
+</div>
 
-    function renderCart() {
-      cartList.innerHTML = '';
-      cartItems.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = `${item.name} - ${item.price} - ${item.user}`;
-        cartList.appendChild(li);
-      });
-    }
+</main>
 
-    function checkout() {
-      if (cartItems.length === 0) {
-        alert("Votre panier est vide !");
-        return;
-      }
+<div id="cart">
+<h2>🛒 Panier</h2>
+<ul id="cart-items"></ul>
+<button onclick="checkout()">Procéder au paiement</button>
+</div>
 
-      cartItems.forEach(item => {
-        const embed = {
-          content: `<@&${ROLE_STAFF_ID}> Nouvel achat !`,
-          embeds: [{
-            title: "🛒 Achat boutique",
-            color: 0xf4c542,
-            fields: [
-              { name: "Article", value: item.name, inline: true },
-              { name: "Prix", value: item.price, inline: true },
-              { name: "Acheteur", value: item.user, inline: false }
-            ]
-          }]
-        };
+<button onclick="document.getElementById('cart').classList.toggle('show')"
+style="position:fixed;top:90px;right:20px;padding:10px 15px;border:none;border-radius:10px;background:#f4c542;font-weight:bold;cursor:pointer;">
+Voir le panier
+</button>
 
-        fetch(WEBHOOK_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(embed)
-        });
-      });
+<script>
 
-      alert("Achat envoyé aux staffs !");
-      cartItems.length = 0;
-      renderCart();
-    }
-  </script>
-  
-  <footer>
-    <p>© 2026 LS Midnight RP — Tous droits réservés</p>
-  </footer>
+const WEBHOOK_URL = "TON_WEBHOOK_ICI";
+const ROLE_STAFF_ID = "1468393518161596531";
+
+const cart = [];
+const cartList = document.getElementById("cart-items");
+const usernameInput = document.getElementById("username");
+
+function addToCart(name, imageUrl) {
+
+  if (!usernameInput.value.trim()) {
+    alert("Entre ton Nom RP !");
+    return;
+  }
+
+  cart.push({ name, imageUrl });
+  renderCart();
+}
+
+function renderCart() {
+  cartList.innerHTML = "";
+  cart.forEach((item, index) => {
+    const li = document.createElement("li");
+    li.textContent = `${index + 1}. ${item.name}`;
+    cartList.appendChild(li);
+  });
+}
+
+function checkout() {
+
+  if (!usernameInput.value.trim()) {
+    alert("Entre ton Nom RP !");
+    return;
+  }
+
+  if (cart.length === 0) {
+    alert("Panier vide !");
+    return;
+  }
+
+  let articles = "";
+  cart.forEach((item, index) => {
+    articles += `**${index + 1}.** ${item.name}\n`;
+  });
+
+  const data = {
+    content: `<@&${ROLE_STAFF_ID}> 🛒 Nouvelle commande !`,
+    embeds: [{
+      title: "🎟️ Ticket Achat - LS Midnight RP",
+      color: 0xf4c542,
+      fields: [
+        { name: "👤 Client RP", value: usernameInput.value, inline: false },
+        { name: "🛍️ Articles", value: articles, inline: false },
+        { name: "💳 Paiement PayPal", value: "[👉 Cliquez ici pour payer](https://paypal.me/routier87)", inline: false }
+      ],
+      image: {
+        url: cart[0].imageUrl
+      },
+      timestamp: new Date()
+    }]
+  };
+
+  fetch(WEBHOOK_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  })
+  .then(() => {
+    alert("✅ Ticket envoyé sur Discord !");
+    cart.length = 0;
+    renderCart();
+  })
+  .catch(() => {
+    alert("❌ Erreur envoi Discord");
+  });
+}
+
+</script>
+
 </body>
 </html>
